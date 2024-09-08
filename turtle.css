@@ -1,0 +1,7 @@
+header {
+    text-align: center;
+}
+.large-emoji {
+    font-size: 192px; /* 2 inches (96 pixels per inch * 2) */
+    line-height: 1; /* Ensures the emoji height stays proportional */
+}

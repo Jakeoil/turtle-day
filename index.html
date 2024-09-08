@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="map-icon.png" />
+        <link rel="stylesheet" href="turtle.css" />
+        <title>Turtle Day</title>
+        <script></script>
+    </head>
+    <body>
+        <header>
+            <h1 id="t-text"></h1>
+            <div class="large-emoji" id="emoji"></div>
+        </header>
+        <button id="fetch-button">Reset to now</button>
+        <div id="result"></div>
+        <label for="turtle-time">Turtle date:</label>
+        <input type="date" id="turtle-time" name="turtle-time" />
+        <br />
+        <br />
+        <div>
+            Do I feed the turtle or take a shower today? This is calculated
+            based on whether today's julian day is even or odd.
+            <ul>
+                <li>Determine the local date</li>
+                <li>Set that date's time to 12:00 UTC</li>
+                <li>
+                    Get the julian date. This is the time passed in days since
+                    noon Monday, 4713 B.C. January 1, 12:00:00.0 UTC.
+                </li>
+                <li>
+                    Get rid of the fractional part. If the number is even, it's
+                    turtle day. If odd, shower day
+                </li>
+            </ul>
+        </div>
+        <script src="turtle.js"></script>
+    </body>
+</html>
