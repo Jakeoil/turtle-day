@@ -11,9 +11,13 @@ window.onload = (event) => {
 
 document.getElementById("turtle-time").onchange = (e) => {
     const datetimeString = document.getElementById("turtle-time").value;
-    console.log(datetimeString);
-    const selectedDate = datetimeString ? new Date(datetimeString) : new Date();
-    computeTurtleDay(selectedDate);
+    console.log("onchange " + datetimeString);
+    const gmtDate = new Date(datetimeString);
+    const localDateOffset = new Date(
+        gmtDate.getTime() + gmtDate.getTimezoneOffset() * 60000
+    );
+    console.log("local date offset:" + localDateOffset);
+    computeTurtleDay(localDateOffset);
 };
 
 const USNO_API = "https://aa.usno.navy.mil/api/";
@@ -51,6 +55,7 @@ function computeTurtleDay(selectedDate) {
     const localDow = selectedDate.getDay();
     const localDateStr = `${DOW[localDow]}, ${MONTH[localMonth]} ${localDate}, ${localYear}`;
     console.log(localDateStr);
+    console.log("selectedDate" + selectedDate.toString);
 
     const gmtDate = Date(localYear, localMonth, localDate, 12);
     const uri =
