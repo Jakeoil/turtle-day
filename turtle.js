@@ -5,10 +5,14 @@ window.onload = (event) => {
     const ele = document.getElementById("turtle-time");
     const now = new Date();
     ele.valueAsDate = now;
-    console.log(ele);
+    console.log(ele.valueAsDate);
+    console.log(ele.value);
     computeTurtleDay(now);
 };
 
+/**
+ *
+ */
 document.getElementById("turtle-time").onchange = (e) => {
     const datetimeString = document.getElementById("turtle-time").value;
     console.log("onchange " + datetimeString);
@@ -18,6 +22,17 @@ document.getElementById("turtle-time").onchange = (e) => {
     );
     console.log("local date offset:" + localDateOffset);
     computeTurtleDay(localDateOffset);
+};
+document.getElementById("fetch-button").onclick = (e) => {
+    try {
+        // Get the current date and time
+        let currentDate = new Date();
+        console.log(currentDate);
+
+        computeTurtleDay(currentDate);
+    } catch (error) {
+        document.getElementById("result").innerText = "Error: " + error.message;
+    }
 };
 
 const USNO_API = "https://aa.usno.navy.mil/api/";
@@ -101,15 +116,3 @@ async function displayTurtleDay(uri) {
         document.getElementById("result").innerText = "Error: " + error.message;
     }
 }
-
-document.getElementById("fetch-button").addEventListener("click", async () => {
-    try {
-        // Get the current date and time
-        let currentDate = new Date();
-        console.log(currentDate);
-
-        computeTurtleDay(currentDate);
-    } catch (error) {
-        document.getElementById("result").innerText = "Error: " + error.message;
-    }
-});
