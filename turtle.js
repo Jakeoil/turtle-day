@@ -63,6 +63,9 @@ const MONTH = [
  *
  */
 function computeTurtleDay(selectedDate) {
+    const formattedDate = new Intl.DateTimeFormat("en-US").format(selectedDate);
+    console.log(formattedDate); // Output: 9/12/2024 (in MM/DD/YYYY format)
+    document.getElementById("now").innerHTML = formattedDate;
     //
     const localYear = selectedDate.getFullYear();
     const localMonth = selectedDate.getMonth(); // 0 to 11
@@ -102,6 +105,9 @@ async function displayTurtleDay(uri) {
         const julianDay = JSON.stringify(data, null, 2);
         console.log(julianDay);
         const jd = data.data[0]["jd"];
+        //document.getElementById("jd").innerHTML = Math.round(jd);
+        document.getElementById("jd").innerHTML =
+            Intl.NumberFormat("en-US").format(jd);
         const parity = parseInt(jd) % 2 == 0;
         console.log(parity);
         if (parity) {

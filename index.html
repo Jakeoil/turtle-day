@@ -26,17 +26,26 @@
         <br />
         <div>
             Do I feed the turtle or take a shower today? This is calculated
-            based on whether today's julian day is even or odd.
+            based on whether today's Julian date is even or odd.
+
+            <br />
+            <br />
             <ul>
-                <li>Determine the local date</li>
+                <li>
+                    Determine your system's current date: <span id="now"></span>
+                </li>
                 <li>Set that date's time to 12:00 UTC</li>
                 <li>
-                    Get the julian date. This is the time passed in days since
-                    day 0, noon Monday, 4713 B.C. January 1, 12:00:00.0 UTC.
+                    Ask the U. S. Naval Observatory to give you the Julian Day
+                    for that time. This is how many days since Noon UT on
+                    Monday, January 1 4713 B.C.
                 </li>
                 <li>
-                    Get rid of the fractional part. If the number is even, it's
-                    turtle day. If odd, shower day
+                    Today's Julian Date turns <span id="jd"></span> at noon UT
+                    today
+                </li>
+                <li>
+                    If the number is even, it's turtle day. If odd, shower day
                 </li>
             </ul>
         </div>
